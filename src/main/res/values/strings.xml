@@ -3,4 +3,5 @@
     <string name="start_camera_error">启动相机失败</string>
     <string name="photo_preview">PhotoPreview</string>
     <string name="take_photo">TakePhoto</string>
+    <string name="save_photo">保存图片</string>
 </resources>

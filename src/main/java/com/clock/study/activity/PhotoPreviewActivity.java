@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.clock.study.R;
@@ -33,13 +34,17 @@ public class PhotoPreviewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo_preview);
 
-        mPhotoPreview = (ImageView) findViewById(R.id.iv_photo_preview);
+        mPhotoPreview = (ImageView) findViewById(R.id.iv_preview_photo);
 
         mImageFile = (File) getIntent().getSerializableExtra(EXTRA_IMAGE);
         int requestWidth = (int) (RuleUtils.getScreenWidth(this) * RATIO);
         int requestHeight = (int) (RuleUtils.getScreenHeight(this) * RATIO);
         Bitmap bitmap = BitmapUtils.decodeBitmapFromFile(mImageFile, requestWidth, requestHeight);//按照屏幕宽高的3/4比例进行缩放显示
         if (bitmap != null) {
+            int degree = BitmapUtils.getBitmapDegree(mImageFile.getAbsolutePath());//检查是否有被旋转，并进行纠正
+            if (degree != 0) {
+                bitmap = BitmapUtils.rotateBitmapByDegree(bitmap, degree);
+            }
             mPhotoPreview.setImageBitmap(bitmap);
         }
     }
@@ -49,4 +54,5 @@ public class PhotoPreviewActivity extends AppCompatActivity {
         previewIntent.putExtra(EXTRA_IMAGE, file);
         activity.startActivity(previewIntent);
     }
+
 }
