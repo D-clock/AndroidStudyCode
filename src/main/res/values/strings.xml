@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">AndroidStudyCode</string>
-    <string name="start_camera_error">启动相机失败</string>
+    <string name="camera_open_error">启动相机失败</string>
     <string name="photo_preview">PhotoPreview</string>
     <string name="take_photo">TakePhoto</string>
     <string name="save_photo">保存图片</string>
+    <string name="not_specify_a_directory">未指定存储目录</string>
 </resources>

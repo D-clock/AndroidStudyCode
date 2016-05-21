@@ -3,9 +3,8 @@ package com.clock.study.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
 import com.clock.study.R;

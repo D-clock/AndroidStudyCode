@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         int viewId = v.getId();
         if (viewId == R.id.btn_camera_take_photo) {
-            Intent takePhotoIntent = new Intent(this, CameraTakePhotoActivity.class);
+            Intent takePhotoIntent = new Intent(this, CapturePhotoActivity.class);
             startActivity(takePhotoIntent);
         }
     }
