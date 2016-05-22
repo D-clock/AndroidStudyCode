@@ -116,4 +116,13 @@ public class CapturePhotoHelper {
     public File getPhoto() {
         return mPhotoFile;
     }
+
+    /**
+     * 设置照片文件
+     *
+     * @param photoFile
+     */
+    public void setPhoto(File photoFile) {
+        this.mPhotoFile = photoFile;
+    }
 }

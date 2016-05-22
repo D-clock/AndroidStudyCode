@@ -2,17 +2,17 @@
 
 记录一些 Android 相关的学习知识和原理，需要的童鞋可以看看。有bug请提Issue哇！
 
-## 最新更新（编辑于2016-05-13）
+## 运行须知
 
-暂无哦
+运行本代码的童鞋，需要先以 Library 的方式导入 [AndroidUtils](https://github.com/D-clock/AndroidUtils) , 因为本库部分代码依赖于 AndroidUtils 。请知悉！
+
+## 最新更新（编辑于2016-05-22）
+
+增加调用系统相机拍照适配方案的文章
 
 ## 归档文章
 
-暂无哦
-
-## 运行配置
-
-暂无哦
+ [你需要知道的Android拍照适配问题.md](notes/你需要知道的Android拍照适配问题.md)
 
 ## 找我
 

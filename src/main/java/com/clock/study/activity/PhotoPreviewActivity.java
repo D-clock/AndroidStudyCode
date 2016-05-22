@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -65,20 +67,7 @@ public class PhotoPreviewActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View v) {
         int viewId = v.getId();
         if (viewId == R.id.btn_display_to_gallery) {
-            /*Bitmap bitmap = BitmapFactory.decodeFile(mPhotoFile.getAbsolutePath());
-            File imageFile = BitmapUtils.saveToFile(bitmap, mPhotoFile.getParentFile());
-            if (imageFile != null) {
-                BitmapUtils.displayToGallery(this, imageFile);
-            }*/
-            String photoPath = mPhotoFile.getAbsolutePath();
-            // 其次把文件插入到系统图库
-            try {
-                MediaStore.Images.Media.insertImage(getContentResolver(), photoPath, mPhotoFile.getName(), null);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-            // 最后通知图库更新
-            sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse("file://" + photoPath)));
+            BitmapUtils.displayToGallery(this, mPhotoFile);
         }
     }
 }
