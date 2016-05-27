@@ -3,13 +3,8 @@ package com.clock.study.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -18,7 +13,6 @@ import com.clock.utils.bitmap.BitmapUtils;
 import com.clock.utils.common.RuleUtils;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 
 /**
  * 预览图片界面

@@ -2,16 +2,13 @@ package com.clock.study.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
 import com.clock.study.R;
-import com.clock.study.StudyApplication;
 import com.clock.study.helper.CapturePhotoHelper;
-import com.clock.utils.common.SystemUtils;
+import com.clock.study.manager.FolderManager;
 
 import java.io.File;
 
@@ -35,12 +32,7 @@ public class CapturePhotoActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera_take_photo);
 
-        File photoFolder = null;
-        if (SystemUtils.mountedSdCard()) {
-            File appFolder = new File(Environment.getExternalStorageDirectory(), StudyApplication.APP_MAIN_FOLDER_NAME);
-            photoFolder = new File(appFolder, StudyApplication.PHOTO_FOLDER_NAME);
-        }
-        mCapturePhotoHelper = new CapturePhotoHelper(this, photoFolder);
+        mCapturePhotoHelper = new CapturePhotoHelper(this, FolderManager.getPhotoFolder());
 
         findViewById(R.id.iv_take_photo).setOnClickListener(this);
 
@@ -59,30 +51,12 @@ public class CapturePhotoActivity extends AppCompatActivity implements View.OnCl
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
-        Log.i(TAG, "onSaveInstanceState2");
-        super.onSaveInstanceState(outState, outPersistentState);
-    }
-
-    @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         Log.i(TAG, "onRestoreInstanceState");
         super.onRestoreInstanceState(savedInstanceState);
         mRestorePhotoFile = (File) savedInstanceState.getSerializable(EXTRA_RESTORE_PHOTO);
         Log.i(TAG, "onRestoreInstanceState , mRestorePhotoFile: " + mRestorePhotoFile);
         mCapturePhotoHelper.setPhoto(mRestorePhotoFile);
-    }
-
-    @Override
-    protected void onRestart() {
-        Log.i(TAG, "onRestart");
-        super.onRestart();
-    }
-
-    @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState, PersistableBundle persistentState) {
-        Log.i(TAG, "onRestoreInstanceState2");
-        super.onRestoreInstanceState(savedInstanceState, persistentState);
     }
 
     @Override
@@ -96,12 +70,19 @@ public class CapturePhotoActivity extends AppCompatActivity implements View.OnCl
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.i(TAG, "requestCode: " + requestCode + " resultCode: " + resultCode + " data: " + data);
-        if (requestCode == CapturePhotoHelper.CAPTURE_PHOTO_REQUEST_CODE && resultCode == RESULT_OK) {
+        if (requestCode == CapturePhotoHelper.CAPTURE_PHOTO_REQUEST_CODE) {
             File photoFile = mCapturePhotoHelper.getPhoto();
             if (photoFile != null) {
-                PhotoPreviewActivity.preview(this, photoFile);
+                if (resultCode == RESULT_OK) {
+                    PhotoPreviewActivity.preview(this, photoFile);
+                    finish();
+                } else {
+                    if (photoFile.exists()) {
+                        photoFile.delete();
+                    }
+                }
             }
-            finish();
+
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }

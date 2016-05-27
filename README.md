@@ -4,15 +4,18 @@
 
 ## 运行须知
 
-运行本代码的童鞋，需要先以 Library 的方式导入 [AndroidUtils](https://github.com/D-clock/AndroidUtils) , 因为本库部分代码依赖于 AndroidUtils 。请知悉！
+- 本库clone到本地后，直接以 moudle 形式导入即可运行；
+- 本库libs下有个**AndroidUtils.aar**的依赖包，是由[AndroidUtils](https://github.com/D-clock/AndroidUtils)代码编译生成；
+- 想要查看**AndroidUtils.aar**中的源代码，可以参考[这里](https://github.com/D-clock/Doc/blob/master/Android/%E4%B8%AA%E4%BA%BA%E6%94%B6%E8%97%8F/%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Baar%E7%9A%84%E6%BA%90%E4%BB%A3%E7%A0%81.md)
 
-## 最新更新（编辑于2016-05-22）
+## 最新更新（编辑于2016-05-27）
 
-增加调用系统相机拍照适配方案的文章
+- 优化拍照实现；
+- 优化项目导入体验；
 
 ## 归档文章
 
- [你需要知道的Android拍照适配问题.md](notes/你需要知道的Android拍照适配问题.md)
+ [你需要知道的Android拍照适配问题](notes/你需要知道的Android拍照适配问题.md)
 
 ## 找我
 
