@@ -1,6 +1,13 @@
 package com.clock.study.manager;
 
+import android.Manifest;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Environment;
+import android.support.v4.app.ActivityCompat;
+
+import com.clock.study.R;
 
 import java.io.File;
 
