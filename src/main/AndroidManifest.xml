@@ -29,6 +29,7 @@
             android:name=".activity.PhotoPreviewActivity"
             android:label="@string/photo_preview"
             android:screenOrientation="portrait" />
+        <activity android:name=".activity.AndroidAnimActivity"></activity>
     </application>
 
 </manifest>
