@@ -12,6 +12,7 @@ import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 
 import com.clock.study.R;
+import com.clock.study.animation.CustomAnimation;
 
 /**
  * Android动画效果实现复习
@@ -23,6 +24,7 @@ public class AndroidAnimActivity extends AppCompatActivity implements View.OnCli
     private Button mBtnRotate;
     private Button mBtnAlpha;
     private Button mBtnSet;
+    private Button mBtnCustom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,9 @@ public class AndroidAnimActivity extends AppCompatActivity implements View.OnCli
 
         mBtnSet = (Button) findViewById(R.id.btn_set);
         mBtnSet.setOnClickListener(this);
+
+        mBtnCustom = (Button) findViewById(R.id.btn_custom_anim);
+        mBtnCustom.setOnClickListener(this);
 
     }
 
@@ -90,6 +95,13 @@ public class AndroidAnimActivity extends AppCompatActivity implements View.OnCli
             AlphaAnimation alphaAnim = new AlphaAnimation(0, 1);
             animSet.addAnimation(alphaAnim);
             mBtnSet.startAnimation(animSet);
+
+        } else if (viewId == R.id.btn_custom_anim) {
+
+            CustomAnimation customAnim = new CustomAnimation();//仿QQ抖屏动画效果
+            customAnim.setDuration(1000);
+            customAnim.setRepeatCount(3);
+            mBtnCustom.startAnimation(customAnim);
 
         }
 
