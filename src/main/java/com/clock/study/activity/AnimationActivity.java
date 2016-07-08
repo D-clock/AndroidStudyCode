@@ -17,7 +17,7 @@ import com.clock.study.animation.CustomAnimation;
 /**
  * Android动画效果实现复习
  */
-public class AndroidAnimActivity extends AppCompatActivity implements View.OnClickListener {
+public class AnimationActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button mBtnTranslate;
     private Button mBtnScale;

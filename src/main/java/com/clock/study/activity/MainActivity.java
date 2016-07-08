@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent takePhotoIntent = new Intent(this, CapturePhotoActivity.class);
             startActivity(takePhotoIntent);
         } else if (viewId == R.id.btn_android_anim) {
-            Intent androidAnimIntent = new Intent(this, AndroidAnimActivity.class);
+            Intent androidAnimIntent = new Intent(this, AnimationActivity.class);
             startActivity(androidAnimIntent);
         }
     }
