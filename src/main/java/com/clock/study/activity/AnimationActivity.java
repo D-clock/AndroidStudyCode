@@ -13,6 +13,7 @@ import android.widget.Button;
 
 import com.clock.study.R;
 import com.clock.study.animation.CustomAnimation;
+import com.clock.study.animation.SimpleCustomAnimation;
 
 /**
  * Android动画效果实现复习
@@ -24,6 +25,7 @@ public class AnimationActivity extends AppCompatActivity implements View.OnClick
     private Button mBtnRotate;
     private Button mBtnAlpha;
     private Button mBtnSet;
+    private Button mBtnSimpleCustom;
     private Button mBtnCustom;
 
     @Override
@@ -45,6 +47,9 @@ public class AnimationActivity extends AppCompatActivity implements View.OnClick
 
         mBtnSet = (Button) findViewById(R.id.btn_set);
         mBtnSet.setOnClickListener(this);
+
+        mBtnSimpleCustom = (Button) findViewById(R.id.btn_simple_custom_anim);
+        mBtnSimpleCustom.setOnClickListener(this);
 
         mBtnCustom = (Button) findViewById(R.id.btn_custom_anim);
         mBtnCustom.setOnClickListener(this);
@@ -95,6 +100,12 @@ public class AnimationActivity extends AppCompatActivity implements View.OnClick
             AlphaAnimation alphaAnim = new AlphaAnimation(0, 1);
             animSet.addAnimation(alphaAnim);
             mBtnSet.startAnimation(animSet);
+
+        } else if (viewId == R.id.btn_simple_custom_anim) {
+
+            SimpleCustomAnimation simpleCustomAnim = new SimpleCustomAnimation();//简单的自定义动画效果
+            simpleCustomAnim.setDuration(1000);
+            mBtnSimpleCustom.startAnimation(simpleCustomAnim);
 
         } else if (viewId == R.id.btn_custom_anim) {
 

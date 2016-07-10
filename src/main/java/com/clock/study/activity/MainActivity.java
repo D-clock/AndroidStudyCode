@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         findViewById(R.id.btn_camera_take_photo).setOnClickListener(this);
-        findViewById(R.id.btn_android_anim).setOnClickListener(this);
+        findViewById(R.id.btn_animation).setOnClickListener(this);
     }
 
     @Override
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (viewId == R.id.btn_camera_take_photo) {
             Intent takePhotoIntent = new Intent(this, CapturePhotoActivity.class);
             startActivity(takePhotoIntent);
-        } else if (viewId == R.id.btn_android_anim) {
+        } else if (viewId == R.id.btn_animation) {
             Intent androidAnimIntent = new Intent(this, AnimationActivity.class);
             startActivity(androidAnimIntent);
         }

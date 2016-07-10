@@ -15,8 +15,8 @@
         android:text="拍照保存实现" />
 
     <Button
-        android:id="@+id/btn_android_anim"
+        android:id="@+id/btn_animation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Android 动画实现" />
+        android:text="Android Animation" />
 </LinearLayout>
