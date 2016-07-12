@@ -67,6 +67,7 @@ https://developer.android.com/reference/android/view/animation/AnimationSet.html
 
 [Android之自定义Animation动画](http://www.apkbus.com/blog-104974-52806.html)
 
+http://www.cnblogs.com/wondertwo/p/5295976.html
 
 为什么一定是重写 initialize 和 applyTransformation 两个函数？从何处得知
 
@@ -87,4 +88,9 @@ Matrix 是一个 3 X 3 的矩阵
 Android Matrix理论与应用详解 http://zensheno.blog.51cto.com/2712776/513652
 
 Android Matrix：http://www.cnblogs.com/qiengo/archive/2012/06/30/2570874.html
+
+
+http://liam0205.me/2014/09/11/matplotlib-tutorial-zh-cn/
+
+http://www.cnblogs.com/rustfisher/p/5071494.html
 
