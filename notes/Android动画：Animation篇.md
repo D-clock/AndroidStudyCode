@@ -63,19 +63,17 @@ https://developer.android.com/reference/android/view/animation/AnimationSet.html
 
 研究动画，如何实现，应该对其原理进行分析才对。
 
-## 自定义 Animation
+跟 View 的绘制原理有关，需要了解。
 
-[Android之自定义Animation动画](http://www.apkbus.com/blog-104974-52806.html)
+Android 动画框架详解：https://www.ibm.com/developerworks/cn/opensource/os-cn-android-anmt1/
+
+## 自定义 Animation
 
 http://www.cnblogs.com/wondertwo/p/5295976.html
 
-为什么一定是重写 initialize 和 applyTransformation 两个函数？从何处得知
+矩阵知识，以及矩阵生成的XY轴的图如何展示（有什么工具可以画出来吗）Python http://liam0205.me/2014/09/11/matplotlib-tutorial-zh-cn/
 
-先搞定如何继承那两个函数来实现自定义动画效果的问题
-
-再通过 加断点 和 打Log 来调试，验证整个动画的实现流程。
-
-矩阵知识，以及矩阵生成的XY轴的图如何展示（有什么工具可以画出来吗）
+这些动画效果遵循的数学公式是什么？？？？？
 
 ## 关于 Matrix
 
@@ -85,12 +83,8 @@ Matrix 是一个 3 X 3 的矩阵
 
 详细介绍 Android Matrix 矩阵的文章：
 
+Android Matrix矩阵详解：http://www.maplejaw.com/2016/06/21/Android-Matrix%E7%9F%A9%E9%98%B5%E8%AF%A6%E8%A7%A3/index.html
+
 Android Matrix理论与应用详解 http://zensheno.blog.51cto.com/2712776/513652
 
-Android Matrix：http://www.cnblogs.com/qiengo/archive/2012/06/30/2570874.html
-
-
-http://liam0205.me/2014/09/11/matplotlib-tutorial-zh-cn/
-
-http://www.cnblogs.com/rustfisher/p/5071494.html
-
+Android Matrix：http://www.cnblogs.com/qiengo/archive/2012/06/30/2570874.html（透视那块，既然文档没有提，那就稍作解释然后忽略即可）

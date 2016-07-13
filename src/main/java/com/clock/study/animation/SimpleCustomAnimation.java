@@ -25,8 +25,8 @@ public class SimpleCustomAnimation extends Animation {
         super.initialize(width, height, parentWidth, parentHeight);
         this.mWidth = width;
         this.mHeight = height;
-        setFillAfter(true);
-        setDuration(15000);
+        /*setFillAfter(true);
+        setDuration(15000);*/
     }
 
     @Override
@@ -39,10 +39,14 @@ public class SimpleCustomAnimation extends Animation {
         //matrix.setSkew(0, interpolatedTime * 2);
         //matrix.setTranslate(0, (float) Math.sin(interpolatedTime * 80) * 10);
         //matrix.setScale(interpolatedTime * 1, interpolatedTime * 1, mWidth / 2, mHeight / 2);//线性缩放
-        float[] data = new float[9];
+        /*float[] data = new float[9];
         matrix.getValues(data);
-        data[Matrix.MPERSP_0] = interpolatedTime * 1;
-        matrix.setValues(data);
+        data[Matrix.MPERSP_1] = interpolatedTime * 1;
+        matrix.setValues(data);*/
+        matrix.preScale(interpolatedTime, interpolatedTime, mWidth / 2, mHeight / 2);
+        matrix.preRotate(interpolatedTime * 360, mWidth / 2, mHeight / 2);
+        matrix.preTranslate(-mWidth / 3, -mHeight / 2);
+        matrix.postTranslate(mWidth, mHeight);
         Log.i(TAG, "-------------applyTransformation-------------");
         Log.i(TAG, "interpolatedTime:" + interpolatedTime);//动画持续的时间，时间比例系数（0.0 到 1.0）之间
         Log.i(TAG, "transformation:" + t);//控制动画效果，Transformation包含两个信息，一个Alpha值，一个Matrix矩阵，这里的Matrix默认是一个单位矩阵
