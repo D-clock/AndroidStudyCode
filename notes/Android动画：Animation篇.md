@@ -71,9 +71,12 @@ Android 动画框架详解：https://www.ibm.com/developerworks/cn/opensource/os
 
 http://www.cnblogs.com/wondertwo/p/5295976.html
 
-矩阵知识，以及矩阵生成的XY轴的图如何展示（有什么工具可以画出来吗）Python http://liam0205.me/2014/09/11/matplotlib-tutorial-zh-cn/
+矩阵知识，以及矩阵生成的XY轴的图如何展示（有什么工具可以画出来吗）
 
-这些动画效果遵循的数学公式是什么？？？？？
+这些动画效果遵循的数学公式是什么？？？？？ http://blog.csdn.net/linmiansheng/article/details/18820599
+
+例子：http://www.apkbus.com/blog-104974-52806.html
+
 
 ## 关于 Matrix
 
@@ -87,4 +90,10 @@ Android Matrix矩阵详解：http://www.maplejaw.com/2016/06/21/Android-Matrix%E
 
 Android Matrix理论与应用详解 http://zensheno.blog.51cto.com/2712776/513652
 
-Android Matrix：http://www.cnblogs.com/qiengo/archive/2012/06/30/2570874.html（透视那块，既然文档没有提，那就稍作解释然后忽略即可）
+Android Matrix：http://www.cnblogs.com/qiengo/archive/2012/06/30/2570874.html （透视那块，既然文档没有提，那就稍作解释然后忽略即可）
+
+矩阵的左乘右乘法概念：http://www.cnblogs.com/ylwn817/archive/2011/12/15/2288921.html
+
+2D平面中关于矩阵（Matrix）跟图形变换的讲解： http://blog.csdn.net/linmiansheng/article/details/18801947
+
+Android中关于矩阵（Matrix）前乘后乘的一些认识：http://blog.csdn.net/linmiansheng/article/details/18820599
