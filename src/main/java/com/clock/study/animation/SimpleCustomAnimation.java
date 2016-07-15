@@ -45,7 +45,7 @@ public class SimpleCustomAnimation extends Animation {
         matrix.setValues(data);*/
         matrix.preScale(interpolatedTime, interpolatedTime);
         matrix.preRotate(interpolatedTime * 360);
-        //matrix.preTranslate(-mWidth / 2, -mHeight / 2);
+        matrix.preTranslate(-mWidth / 2, -mHeight / 2);
         matrix.postTranslate(mWidth / 2, mHeight / 2);
         //t.setAlpha(interpolatedTime);
         Log.i(TAG, "-------------applyTransformation-------------");
