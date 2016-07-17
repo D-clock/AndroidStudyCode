@@ -1,7 +1,7 @@
 package com.clock.study.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -12,7 +12,6 @@ import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 
 import com.clock.study.R;
-import com.clock.study.animation.CustomAnimation;
 import com.clock.study.animation.SimpleCustomAnimation;
 
 /**
@@ -26,7 +25,6 @@ public class AnimationActivity extends AppCompatActivity implements View.OnClick
     private Button mBtnAlpha;
     private Button mBtnSet;
     private Button mBtnSimpleCustom;
-    private Button mBtnCustom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +48,6 @@ public class AnimationActivity extends AppCompatActivity implements View.OnClick
 
         mBtnSimpleCustom = (Button) findViewById(R.id.btn_simple_custom_anim);
         mBtnSimpleCustom.setOnClickListener(this);
-
-        mBtnCustom = (Button) findViewById(R.id.btn_custom_anim);
-        mBtnCustom.setOnClickListener(this);
 
     }
 
@@ -96,7 +91,9 @@ public class AnimationActivity extends AppCompatActivity implements View.OnClick
             AnimationSet animSet = new AnimationSet(true);
             animSet.setDuration(2000);
             RotateAnimation rotateAnim = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+            ScaleAnimation scaleAnimation = new ScaleAnimation(0, 1, 0, 1, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
             animSet.addAnimation(rotateAnim);
+            animSet.addAnimation(scaleAnimation);
             AlphaAnimation alphaAnim = new AlphaAnimation(0, 1);
             animSet.addAnimation(alphaAnim);
             mBtnSet.startAnimation(animSet);
@@ -106,13 +103,6 @@ public class AnimationActivity extends AppCompatActivity implements View.OnClick
             SimpleCustomAnimation simpleCustomAnim = new SimpleCustomAnimation();//简单的自定义动画效果
             simpleCustomAnim.setDuration(1000);
             mBtnSimpleCustom.startAnimation(simpleCustomAnim);
-
-        } else if (viewId == R.id.btn_custom_anim) {
-
-            CustomAnimation customAnim = new CustomAnimation();//仿QQ抖屏动画效果
-            customAnim.setDuration(1000);
-            customAnim.setRepeatCount(3);
-            mBtnCustom.startAnimation(customAnim);
 
         }
 

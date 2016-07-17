@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.clock.study.activity.AnimationTestActivity">
+    android:orientation="vertical">
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/btn_test_anim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Test Animation" />
+
+    <ListView
+        android:id="@+id/list_view_test"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:persistentDrawingCache="animation|scrolling" />
+</LinearLayout>
