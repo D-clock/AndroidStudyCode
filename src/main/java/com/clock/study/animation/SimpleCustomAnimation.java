@@ -25,29 +25,16 @@ public class SimpleCustomAnimation extends Animation {
         super.initialize(width, height, parentWidth, parentHeight);
         this.mWidth = width;
         this.mHeight = height;
-        //setFillAfter(true);
-        //setDuration(15000);
     }
 
     @Override
     protected void applyTransformation(float interpolatedTime, Transformation t) {
         Matrix matrix = t.getMatrix();
-        //matrix.setTranslate((float) Math.sin(interpolatedTime * 50), interpolatedTime * 350);
-        //matrix.setRotate(interpolatedTime * 90);
-        //matrix.setScale(interpolatedTime * 3, interpolatedTime * 3);
-        //matrix.setSkew(interpolatedTime * 2, 0);
-        //matrix.setSkew(0, interpolatedTime * 2);
-        //matrix.setTranslate(0, (float) Math.sin(interpolatedTime * 80) * 10);
-        //matrix.setScale(interpolatedTime * 1, interpolatedTime * 1, mWidth / 2, mHeight / 2);//线性缩放
-        /*float[] data = new float[9];
-        matrix.getValues(data);
-        data[Matrix.MPERSP_1] = interpolatedTime * 1;
-        matrix.setValues(data);*/
-        matrix.preScale(interpolatedTime, interpolatedTime);
-        matrix.preRotate(interpolatedTime * 360);
+        matrix.preScale(interpolatedTime, interpolatedTime);//缩放
+        matrix.preRotate(interpolatedTime * 360);//旋转
+        //下面的Translate组合是为了将缩放和旋转的基点移动到整个View的中心，不然系统默认是以View的左上角作为基点
         matrix.preTranslate(-mWidth / 2, -mHeight / 2);
         matrix.postTranslate(mWidth / 2, mHeight / 2);
-        //t.setAlpha(interpolatedTime);
         Log.i(TAG, "-------------applyTransformation-------------");
         Log.i(TAG, "interpolatedTime:" + interpolatedTime);//动画持续的时间，时间比例系数（0.0 到 1.0）之间
         Log.i(TAG, "transformation:" + t);//控制动画效果，Transformation包含两个信息，一个Alpha值，一个Matrix矩阵，这里的Matrix默认是一个单位矩阵
