@@ -16,7 +16,7 @@
 ## 归档文章
 
 - [你需要知道的Android拍照适配问题](notes/你需要知道的Android拍照适配问题.md)
-- [你深入理解Android中的Matrix](notes/你深入理解Android中的Matrix.md)
+- [深入理解Android中的Matrix](notes/深入理解Android中的Matrix.md)
 
 ## 找我
 
