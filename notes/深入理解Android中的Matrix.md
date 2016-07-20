@@ -100,7 +100,6 @@ public class SimpleCustomAnimation extends Animation {
     @Override
     protected void applyTransformation(float interpolatedTime, Transformation t) {
         Matrix matrix = t.getMatrix();
-        Matrix matrix = t.getMatrix();
         matrix.preScale(interpolatedTime, interpolatedTime);//缩放
         matrix.preRotate(interpolatedTime * 360);//旋转
         //下面的Translate组合是为了将缩放和旋转的基点移动到整个View的中心，不然系统默认是以View的左上角作为基点
@@ -117,7 +116,7 @@ public class SimpleCustomAnimation extends Animation {
 
 实际上这几行代码用矩阵来表示就相当于如下所示：
 
-![](http://d.hiphotos.baidu.com/image/pic/item/c8ea15ce36d3d539cd1eedb43287e950352ab0a2.jpg)
+![](http://a.hiphotos.baidu.com/image/pic/item/a686c9177f3e67097989758633c79f3df8dc5539.jpg)
 
 关于代码的作用上边已经给出了注释，这里就不多写了。主要还是要弄明白 Matrix 复合变换中 pre 、 post 等操作与其对应的矩阵发生的左乘、右乘变化。
 
