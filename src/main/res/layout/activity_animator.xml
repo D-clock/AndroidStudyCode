@@ -9,20 +9,32 @@
     android:paddingTop="@dimen/activity_vertical_margin">
 
     <Button
-        android:id="@+id/btn_camera_take_photo"
+        android:id="@+id/btn_value_anim"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="拍照保存实现" />
+        android:text="Value Animator" />
 
     <Button
-        android:id="@+id/btn_animation"
+        android:id="@+id/btn_object_anim_alpha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Android Animation" />
+        android:text="Object Animator (Alpha)" />
 
     <Button
-        android:id="@+id/btn_animator"
+        android:id="@+id/btn_object_anim_rotation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Android Animator" />
+        android:text="Object Animator (Rotation)" />
+
+    <Button
+        android:id="@+id/btn_object_anim_set"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Object Animator (Set)" />
+
+    <Button
+        android:id="@+id/btn_object_anim_xml"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Object Animator (Xml)" />
 </LinearLayout>
