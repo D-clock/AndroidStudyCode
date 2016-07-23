@@ -52,10 +52,34 @@
                 android:text="Object Animator (Xml)" />
 
             <Button
-                android:id="@+id/btn_float_evaluator"
+                android:id="@+id/btn_simple_value_animator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Float Evaluator" />
+                android:text="Simple Value Animator" />
+
+            <Button
+                android:id="@+id/btn_value_animator_argb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Value Animator (Argb)" />
+
+            <Button
+                android:id="@+id/btn_bounce_interpolator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bounce Interpolator" />
+
+            <Button
+                android:id="@+id/btn_simple_key_frame"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Simple Key Frame" />
+
+            <Button
+                android:id="@+id/btn_shake_key_frame"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Shake Key Frame" />
         </LinearLayout>
     </ScrollView>
 
