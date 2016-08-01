@@ -10,7 +10,7 @@
 
     <include
         android:id="@+id/anim_target"
-        layout="@layout/list_view_test_item" />
+        layout="@layout/author_info_layout" />
 
     <ScrollView
         android:layout_width="match_parent"
