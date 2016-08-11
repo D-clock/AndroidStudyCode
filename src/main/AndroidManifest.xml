@@ -38,6 +38,7 @@
         <activity
             android:name=".activity.AnimatorActivity"
             android:label="@string/android_animator" />
+        <activity android:name=".activity.NightModeActivity"></activity>
     </application>
 
 </manifest>
