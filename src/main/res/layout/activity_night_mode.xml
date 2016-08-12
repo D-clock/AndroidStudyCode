@@ -26,20 +26,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Normal" />
-
-        <RadioButton
-            android:id="@+id/rb_car_mode"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Car Mode" />
+            android:text="普通模式" />
 
         <RadioButton
             android:id="@+id/rb_night_mode"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Night Mode" />
+            android:text="夜间模式" />
     </RadioGroup>
 </LinearLayout>

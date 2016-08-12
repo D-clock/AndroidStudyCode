@@ -2,8 +2,9 @@ package com.clock.study.activity;
 
 import android.app.UiModeManager;
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -40,21 +41,24 @@ public class NightModeActivity extends AppCompatActivity implements RadioGroup.O
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         if (mUiModeGroup == group) {
-            int currentModeType = mUiModeManager.getCurrentModeType();
-            Log.i(TAG, "currentModeType: " + currentModeType);
+            int currentModeType = mUiModeManager.getCurrentModeType();//获取 UI 模式
+            Log.e(TAG, "currentModeType value is : " + currentModeType);
             if (checkedId == R.id.rb_normal) {
-                mUiModeManager.disableCarMode(0);
-                mUiModeManager.setNightMode(UiModeManager.MODE_NIGHT_NO);
+                if (currentModeType == Configuration.UI_MODE_TYPE_CAR) {
+                    mUiModeManager.disableCarMode(0);//关闭车载模式
+                    mUiModeManager.setNightMode(UiModeManager.MODE_NIGHT_NO);
+                }
 
             } else if (checkedId == R.id.rb_night_mode) {//夜间模式
-                mUiModeManager.enableCarMode(0);
-                mUiModeManager.setNightMode(UiModeManager.MODE_NIGHT_YES);
-
-            } else if (checkedId == R.id.rb_car_mode) {//车载模式
-                mUiModeManager.disableCarMode(0);
-                mUiModeManager.setNightMode(UiModeManager.MODE_NIGHT_NO);
+                if (currentModeType == Configuration.UI_MODE_TYPE_NORMAL) {
+                    //Note: On API 22 and below, changes to the night mode are only effective when the car or desk mode is enabled on a device.
+                    // Starting in API 23, changes to night mode are always effective.
+                    mUiModeManager.enableCarMode(0);//启用车载模式
+                    mUiModeManager.setNightMode(UiModeManager.MODE_NIGHT_YES);
+                }
 
             }
         }
     }
+
 }
