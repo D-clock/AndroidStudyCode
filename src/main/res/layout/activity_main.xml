@@ -27,9 +27,9 @@
         android:text="Android Animator" />
 
     <Button
-        android:id="@+id/btn_night_mode"
+        android:id="@+id/btn_day_night"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="夜间模式" />
+        android:text="Day Night" />
 
 </LinearLayout>

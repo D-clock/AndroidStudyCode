@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_camera_take_photo).setOnClickListener(this);
         findViewById(R.id.btn_animation).setOnClickListener(this);
         findViewById(R.id.btn_animator).setOnClickListener(this);
-        findViewById(R.id.btn_night_mode).setOnClickListener(this);
+        findViewById(R.id.btn_day_night).setOnClickListener(this);
 
     }
 
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (viewId == R.id.btn_animator) {
             Intent animatorIntent = new Intent(this, AnimatorActivity.class);
             startActivity(animatorIntent);
-        } else if (viewId == R.id.btn_night_mode) {
+        } else if (viewId == R.id.btn_day_night) {
             Intent animatorIntent = new Intent(this, DayNightActivity.class);
             startActivity(animatorIntent);
         }
