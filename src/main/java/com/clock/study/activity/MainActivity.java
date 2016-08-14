@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent animatorIntent = new Intent(this, AnimatorActivity.class);
             startActivity(animatorIntent);
         } else if (viewId == R.id.btn_night_mode) {
-            Intent animatorIntent = new Intent(this, NightModeActivity.class);
+            Intent animatorIntent = new Intent(this, DayNightActivity.class);
             startActivity(animatorIntent);
         }
     }

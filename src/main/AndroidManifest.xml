@@ -38,7 +38,7 @@
         <activity
             android:name=".activity.AnimatorActivity"
             android:label="@string/android_animator" />
-        <activity android:name=".activity.NightModeActivity"></activity>
+        <activity android:name=".activity.DayNightActivity"></activity>
     </application>
 
 </manifest>
