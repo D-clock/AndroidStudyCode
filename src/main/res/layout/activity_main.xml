@@ -18,18 +18,18 @@
         android:id="@+id/btn_animation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Android Animation" />
+        android:text="@string/android_animation" />
 
     <Button
         android:id="@+id/btn_animator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Android Animator" />
+        android:text="@string/android_animator" />
 
     <Button
         android:id="@+id/btn_day_night"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Day Night" />
+        android:text="@string/day_night_mode" />
 
 </LinearLayout>
