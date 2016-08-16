@@ -3,9 +3,11 @@ package com.clock.study.activity;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -61,8 +63,9 @@ public class DayNightActivity extends AppCompatActivity {
             recreate();
         } else if (itemId == R.id.night_mode) {
             isNight = true;
-            initTransBitmap();
-            startAnimation(mTransView);
+            //initTransBitmap();
+            //startAnimation(mTransView);
+            new TypedValue();
             recreate();
         }
         return super.onOptionsItemSelected(item);
