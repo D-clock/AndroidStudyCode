@@ -65,7 +65,6 @@ public class DayNightActivity extends AppCompatActivity {
             isNight = true;
             //initTransBitmap();
             //startAnimation(mTransView);
-            new TypedValue();
             recreate();
         }
         return super.onOptionsItemSelected(item);
