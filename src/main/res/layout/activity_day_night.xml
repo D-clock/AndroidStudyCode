@@ -1,42 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".activity.DayNightActivity">
 
     <LinearLayout
-        android:id="@+id/layout_main"
+        android:id="@+id/header_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        android:gravity="center"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/iv_portrait"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:background="@mipmap/lufy" />
+        <RelativeLayout
+            android:id="@+id/jianshu_layout"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="?attr/clockBackground">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="昵称：D_clock爱吃葱花"
-            android:textSize="15sp" />
+            <TextView
+                android:id="@+id/tv_jianshu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="?attr/clockBackground"
+                android:text="简书切换方案" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="格言：人的梦想是不会终结的！"
-            android:textSize="15sp" />
+            <CheckBox
+                android:id="@+id/ckb_jianshu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/zhihu_layout"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="?attr/clockBackground">
+
+            <TextView
+                android:id="@+id/tv_zhihu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="?attr/clockBackground"
+                android:text="知乎切换方案" />
+
+            <CheckBox
+                android:id="@+id/ckb_zhihu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp" />
+        </RelativeLayout>
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/iv_trans"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone" />
-</FrameLayout>
+        android:background="?attr/clockBackground"
+        android:overScrollMode="never" />
+
+</LinearLayout>

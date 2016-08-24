@@ -1,106 +1,154 @@
 package com.clock.study.activity;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
-import android.graphics.Bitmap;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.util.TypedValue;
+import android.view.Window;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.clock.study.R;
+import com.clock.study.adapter.SimpleAuthorAdapter;
+import com.clock.study.helper.DayNightHelper;
+import com.clock.study.type.DayNight;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 夜间模式实现方案
  *
  * @author Clock
- * @since 2016=08-11
+ * @since 2016-08-11
  */
-public class DayNightActivity extends AppCompatActivity {
+public class DayNightActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
 
     private final static String TAG = DayNightActivity.class.getSimpleName();
 
-    private static boolean isNight = false;
+    private DayNightHelper mDayNightHelper;
 
-    private View mRootView;
-    /**
-     * 切换模式时，保存界面效果用于
-     */
-    private ImageView mTransView;
+    private RecyclerView mRecyclerView;
+
+    private LinearLayout mHeaderLayout;
+    private List<RelativeLayout> mLayoutList;
+    private List<TextView> mTextViewList;
+    private List<CheckBox> mCheckBoxList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (isNight) {
-            setTheme(R.style.NightTheme);
-        } else {
-            setTheme(R.style.DayTheme);
-        }
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+        initData();
+        initTheme();
         setContentView(R.layout.activity_day_night);
         initView();
-
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = new MenuInflater(this);
-        menuInflater.inflate(R.menu.day_night_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int itemId = item.getItemId();
-        if (itemId == R.id.day_mode) {
-            isNight = false;
-            recreate();
-        } else if (itemId == R.id.night_mode) {
-            isNight = true;
-            //initTransBitmap();
-            //startAnimation(mTransView);
-            recreate();
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     private void initView() {
-        mRootView = findViewById(R.id.layout_main);
-        mTransView = (ImageView) findViewById(R.id.iv_trans);
+        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        mRecyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.setAdapter(new SimpleAuthorAdapter());
+
+        mHeaderLayout = (LinearLayout) findViewById(R.id.header_layout);
+
+        mLayoutList = new ArrayList<>();
+        mLayoutList.add((RelativeLayout) findViewById(R.id.jianshu_layout));
+        mLayoutList.add((RelativeLayout) findViewById(R.id.zhihu_layout));
+
+        mTextViewList = new ArrayList<>();
+        mTextViewList.add((TextView) findViewById(R.id.tv_jianshu));
+        mTextViewList.add((TextView) findViewById(R.id.tv_zhihu));
+
+        mCheckBoxList = new ArrayList<>();
+        CheckBox ckbJianshu = (CheckBox) findViewById(R.id.ckb_jianshu);
+        ckbJianshu.setOnCheckedChangeListener(this);
+        mCheckBoxList.add(ckbJianshu);
+        CheckBox ckbZhihu = (CheckBox) findViewById(R.id.ckb_zhihu);
+        ckbZhihu.setOnCheckedChangeListener(this);
+        mCheckBoxList.add(ckbZhihu);
+
     }
 
-    /**
-     * 初始化起过渡效果用的Bitmap
-     */
-    private void initTransBitmap() {
-        //开启绘制缓存，让View中的内容能够转换成为Bitmap
-        mRootView.setDrawingCacheEnabled(true);
-        Bitmap bitmap = mRootView.getDrawingCache();
-        if (bitmap != null) {
-            mTransView.setImageBitmap(bitmap);
-            mTransView.setAlpha(1f);
-            mTransView.setVisibility(View.VISIBLE);
+    private void initData() {
+        mDayNightHelper = new DayNightHelper(this);
+    }
+
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        int viewId = buttonView.getId();
+        if (viewId == R.id.ckb_jianshu) {
+            changeThemeByJianShu();
+
+        } else if (viewId == R.id.ckb_zhihu) {
+            changeThemeByZhiHu();
+
+        }
+    }
+
+    private void initTheme() {
+        if (mDayNightHelper.isDay()) {
+            setTheme(R.style.DayTheme);
+        } else {
+            setTheme(R.style.NightTheme);
         }
     }
 
     /**
-     * 启动过度用的动画效果
+     * 切换主题设置
      */
-    private void startAnimation(final View transView) {
-        ObjectAnimator animator = ObjectAnimator.ofFloat(transView, "alpha", 1f, 0f);
-        animator.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                super.onAnimationEnd(animation);
-                transView.setVisibility(View.GONE);
-            }
-        });
-        animator.setDuration(1000);
-        animator.start();
-
+    private void toggleThemeSetting() {
+        if (mDayNightHelper.isDay()) {
+            mDayNightHelper.setMode(DayNight.NIGHT);
+            setTheme(R.style.NightTheme);
+        } else {
+            mDayNightHelper.setMode(DayNight.DAY);
+            setTheme(R.style.DayTheme);
+        }
     }
 
+    /**
+     * 使用简书的实现套路来切换夜间主题
+     */
+    private void changeThemeByJianShu() {
+        toggleThemeSetting();
+
+        final TypedValue typedValue = new TypedValue();
+        Resources.Theme theme = getTheme();
+
+        theme.resolveAttribute(R.attr.clockBackground, typedValue, true);
+        Log.i(TAG, "clockBackground resourceId: " + typedValue.resourceId);
+        mHeaderLayout.setBackgroundResource(typedValue.resourceId);
+        mRecyclerView.setBackgroundResource(typedValue.resourceId);
+        for (RelativeLayout layout : mLayoutList) {
+            layout.setBackgroundResource(typedValue.resourceId);
+        }
+        for (CheckBox checkBox : mCheckBoxList) {
+            checkBox.setBackgroundResource(typedValue.resourceId);
+        }
+        for (TextView textView : mTextViewList) {
+            textView.setBackgroundResource(typedValue.resourceId);
+        }
+
+        theme.resolveAttribute(R.attr.clockTextColor, typedValue, true);
+        Log.i(TAG, "clockTextColor resourceId: " + typedValue.resourceId);
+        for (TextView textView : mTextViewList) {
+            textView.setTextColor(getResources().getColor(typedValue.resourceId));
+        }
+    }
+
+    /**
+     * 使用知乎的实现套路来切换夜间主题
+     */
+    private void changeThemeByZhiHu() {
+        toggleThemeSetting();
+    }
 }
