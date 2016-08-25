@@ -1,11 +1,14 @@
 package com.clock.study.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.clock.study.R;
+import com.clock.study.activity.AuthorActivity;
 
 /**
  * Just Simple Author Adapter
@@ -13,6 +16,15 @@ import com.clock.study.R;
  * Created by Clock on 2016/8/24.
  */
 public class SimpleAuthorAdapter extends RecyclerView.Adapter<SimpleAuthorAdapter.SimpleViewHolder> {
+
+    private final View.OnClickListener mSimpleClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Context context = v.getContext();
+            Intent intent = new Intent(context, AuthorActivity.class);
+            context.startActivity(intent);
+        }
+    };
 
     @Override
     public SimpleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -23,7 +35,7 @@ public class SimpleAuthorAdapter extends RecyclerView.Adapter<SimpleAuthorAdapte
 
     @Override
     public void onBindViewHolder(SimpleViewHolder holder, int position) {
-
+        holder.itemView.setOnClickListener(mSimpleClickListener);
     }
 
     @Override

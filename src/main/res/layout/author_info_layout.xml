@@ -14,6 +14,7 @@
         android:src="@mipmap/lufy" />
 
     <LinearLayout
+        android:id="@+id/info_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="5dp"

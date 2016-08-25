@@ -41,6 +41,9 @@
         <activity
             android:name=".activity.DayNightActivity"
             android:label="@string/day_night_mode" />
+        <activity
+            android:name=".activity.AuthorActivity"
+            android:label="Just a boy" />
     </application>
 
 </manifest>
