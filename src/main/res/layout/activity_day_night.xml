@@ -26,7 +26,8 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:background="?attr/clockBackground"
-                android:text="简书切换方案" />
+                android:text="简书切换方案"
+                android:textColor="?attr/clockTextColor" />
 
             <CheckBox
                 android:id="@+id/ckb_jianshu"
@@ -50,7 +51,8 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:background="?attr/clockBackground"
-                android:text="知乎切换方案" />
+                android:text="知乎切换方案"
+                android:textColor="?attr/clockTextColor" />
 
             <CheckBox
                 android:id="@+id/ckb_zhihu"

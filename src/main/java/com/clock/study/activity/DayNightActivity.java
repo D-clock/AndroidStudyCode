@@ -1,8 +1,10 @@
 package com.clock.study.activity;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.ContextThemeWrapper;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -19,6 +21,9 @@ import com.clock.study.adapter.SimpleAuthorAdapter;
 import com.clock.study.helper.DayNightHelper;
 import com.clock.study.type.DayNight;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -125,9 +130,8 @@ public class DayNightActivity extends AppCompatActivity implements CompoundButto
         Resources.Theme theme = getTheme();
 
         theme.resolveAttribute(R.attr.clockBackground, typedValue, true);
-        Log.i(TAG, "clockBackground resourceId: " + typedValue.resourceId);
         mHeaderLayout.setBackgroundResource(typedValue.resourceId);
-        mRecyclerView.setBackgroundResource(typedValue.resourceId);
+        //mRecyclerView.setBackgroundResource(typedValue.resourceId);
         for (RelativeLayout layout : mLayoutList) {
             layout.setBackgroundResource(typedValue.resourceId);
         }
@@ -139,9 +143,39 @@ public class DayNightActivity extends AppCompatActivity implements CompoundButto
         }
 
         theme.resolveAttribute(R.attr.clockTextColor, typedValue, true);
-        Log.i(TAG, "clockTextColor resourceId: " + typedValue.resourceId);
+        Resources resources = getResources();
         for (TextView textView : mTextViewList) {
-            textView.setTextColor(getResources().getColor(typedValue.resourceId));
+            textView.setTextColor(resources.getColor(typedValue.resourceId));
+        }
+
+        Class<RecyclerView> recyclerViewClass = RecyclerView.class;
+        try {
+            Field declaredField = recyclerViewClass.getDeclaredField("mRecycler");
+            declaredField.setAccessible(true);
+            Method declaredMethod = Class.forName(RecyclerView.Recycler.class.getName()).getDeclaredMethod("clear", (Class<?>[]) new Class[0]);
+            declaredMethod.setAccessible(true);
+            declaredMethod.invoke(declaredField.get(mRecyclerView), new Object[0]);
+            RecyclerView.RecycledViewPool recycledViewPool = mRecyclerView.getRecycledViewPool();
+            recycledViewPool.clear();
+            Context context = mRecyclerView.getContext();
+            if (context instanceof ContextThemeWrapper) {
+                if (mDayNightHelper.isDay()) {
+                    context.setTheme(R.style.DayTheme);
+                } else {
+                    context.setTheme(R.style.NightTheme);
+                }
+            }
+
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
     }
 

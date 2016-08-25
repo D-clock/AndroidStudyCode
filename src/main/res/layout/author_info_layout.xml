@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="80dp"
+    android:background="?attr/clockBackground"
     android:orientation="horizontal">
 
     <ImageView
@@ -16,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="5dp"
+        android:background="?attr/clockBackground"
         android:orientation="vertical">
 
         <TextView
@@ -23,15 +25,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:background="?attr/clockBackground"
+            android:text="D_clock爱吃葱花"
+            android:textColor="?attr/clockTextColor"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:text="D_clock爱吃葱花" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tv_motto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Diycode 大管家，闭关写代码" />
+            android:background="?attr/clockBackground"
+            android:text="Diycode 大管家，闭关写代码"
+            android:textColor="?attr/clockTextColor" />
     </LinearLayout>
 </LinearLayout>
