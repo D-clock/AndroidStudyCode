@@ -8,15 +8,15 @@
 - 本库libs下有个**AndroidUtils.aar**的依赖包，是由[AndroidUtils](https://github.com/D-clock/AndroidUtils)代码编译生成；
 - 想要查看**AndroidUtils.aar**中的源代码，可以参考[这里](https://github.com/D-clock/Doc/blob/master/Android/%E4%B8%AA%E4%BA%BA%E6%94%B6%E8%97%8F/%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Baar%E7%9A%84%E6%BA%90%E4%BB%A3%E7%A0%81.md)
 
-## 最新更新（编辑于2016-06-08）
+## 最新更新（编辑于2016-08-29）
 
-- 兼容处理 Android M 版本的 Runtime Permission ；
-- 优化 build.gradle ，提高导入 moudle 体验；
+- 兼添加夜间模式的实现分析，详见文章 [知乎和简书的夜间模式实现套路](notes/知乎和简书的夜间模式实现套路.md)
 
 ## 归档文章
 
 - [你需要知道的Android拍照适配问题](notes/你需要知道的Android拍照适配问题.md)
 - [深入理解Android中的Matrix](notes/深入理解Android中的Matrix.md)
+- [知乎和简书的夜间模式实现套路](notes/知乎和简书的夜间模式实现套路.md)
 
 ## 找我
 
