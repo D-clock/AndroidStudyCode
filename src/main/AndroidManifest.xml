@@ -29,8 +29,21 @@
             android:name=".activity.PhotoPreviewActivity"
             android:label="@string/photo_preview"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.AnimationActivity" />
-        <activity android:name=".activity.AnimationTestActivity"/>
+        <activity
+            android:name=".activity.AnimationActivity"
+            android:label="@string/android_animation" />
+        <activity
+            android:name=".activity.AnimationTestActivity"
+            android:label="@string/animation_test" />
+        <activity
+            android:name=".activity.AnimatorActivity"
+            android:label="@string/android_animator" />
+        <activity
+            android:name=".activity.DayNightActivity"
+            android:label="@string/day_night_mode" />
+        <activity
+            android:name=".activity.AuthorActivity"
+            android:label="Just a boy" />
     </application>
 
 </manifest>

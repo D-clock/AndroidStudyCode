@@ -59,7 +59,7 @@ public class AnimationTestActivity extends AppCompatActivity implements View.OnC
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
-                convertView = View.inflate(parent.getContext(), R.layout.list_view_test_item, null);
+                convertView = View.inflate(parent.getContext(), R.layout.author_info_layout, null);
             }
             return convertView;
         }

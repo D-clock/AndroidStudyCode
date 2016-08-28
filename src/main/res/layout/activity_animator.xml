@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+    <include
+        android:id="@+id/anim_target"
+        layout="@layout/author_info_layout" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_value_anim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Value Animator" />
+
+            <Button
+                android:id="@+id/btn_object_anim_alpha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Object Animator (Alpha)" />
+
+            <Button
+                android:id="@+id/btn_object_anim_rotation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Object Animator (Rotation)" />
+
+            <Button
+                android:id="@+id/btn_object_anim_set"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Object Animator (Set)" />
+
+            <Button
+                android:id="@+id/btn_object_anim_xml"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Object Animator (Xml)" />
+
+            <Button
+                android:id="@+id/btn_simple_value_animator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Simple Value Animator" />
+
+            <Button
+                android:id="@+id/btn_value_animator_argb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Value Animator (Argb)" />
+
+            <Button
+                android:id="@+id/btn_bounce_interpolator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bounce Interpolator" />
+
+            <Button
+                android:id="@+id/btn_simple_key_frame"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Simple Key Frame" />
+
+            <Button
+                android:id="@+id/btn_shake_key_frame"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Shake Key Frame" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -9,4 +9,8 @@
     <string name="help_content">当前权限被禁用，建议到设置界面开启权限!</string>
     <string name="cancel">取消</string>
     <string name="settings">设置</string>
+    <string name="android_animation">Android  Animation</string>
+    <string name="android_animator">Android  Animator</string>
+    <string name="day_night_mode">DayNight Mode</string>
+    <string name="animation_test">Animation Test</string>
 </resources>
